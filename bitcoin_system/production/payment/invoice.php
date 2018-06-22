@@ -69,7 +69,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="https://www.bitcoinminehub.com" class="site_title"> <span><img src="images/logo.png" alt="Bitcoin Mine Hub"></span></a>
+              <a href="<?php echo BASE_URL;?>" class="site_title"> <span><img src="images/logo.png" alt="Bitcoin Mine Hub"></span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -77,10 +77,10 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <a href="https://www.bitcoinminehub.com"><img src="images/img.jpg" alt="..." class="img-circle profile_img"></a>              </div>
+                <a href="<?php echo BASE_URL;?>"><img src="images/img.jpg" alt="..." class="img-circle profile_img"></a>              </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2><?php if (isset($_SESSION['Username'])) { echo ' '.$_SESSION['Username']; } else{ header("location:https://www.bitcoinminehub.com/bitcoin_system/production/login");}?></h2>
+                <h2><?php if (isset($_SESSION['Username'])) { echo ' '.$_SESSION['Username']; } else{ header("location:".BASE_URL."bitcoin_system/production/login");}?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -134,13 +134,13 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt=""><?php if (isset($_SESSION['Username'])) { echo ' '.$_SESSION['Username']; } else{ header("location:https://www.bitcoinminehub.com/bitcoin_system/production/login");}?>
+                    <img src="images/img.jpg" alt=""><?php if (isset($_SESSION['Username'])) { echo ' '.$_SESSION['Username']; } else{ header("location:".BASE_URL."bitcoin_system/production/login");}?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> <i class="fa fa-user pull-right"></i>Profile</a></li>
                     <li><a href="javascript:;"><i class="fa fa-globe pull-right"></i>Support</a></li>
-                    <li><a href="https://www.bitcoinminehub.com/bitcoin_system/production/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="<?php echo BASE_URL;?>bitcoin_system/production/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 					
@@ -213,7 +213,7 @@
                           <address>
                           
                                           <strong>
-                                          <?php if (isset($_SESSION['Username'])) { echo ' '.$_SESSION['Username']; } else{ header("location:https://www.bitcoinminehub.com/bitcoin_system/production/login");}?></strong>
+                                          <?php if (isset($_SESSION['Username'])) { echo ' '.$_SESSION['Username']; } else{ header("location:".BASE_URL."bitcoin_system/production/login");}?></strong>
                                           
                                         
                           </address>
@@ -288,7 +288,7 @@
 										$btcValue = $stats['market_price_usd'];
 										}
 										else {
-											header("location:https://www.bitcoinminehub.com/bitcoin_system/production/login");
+											header("location:".BASE_URL."bitcoin_system/production/login");
 										}
 										?>
                             <?php
@@ -298,12 +298,12 @@
 								$querystatus = mysqli_query($conn, $getstatus);
 								//Check if status is unpaid
 								if (mysqli_num_rows($querystatus) == 1) {
-								header("location:https://www.bitcoinminehub.com/bitcoin_system/production/unpaid");	
+								header("location:".BASE_URL."bitcoin_system/production/unpaid");	
 								}else{
 							$api_key = "2fe2a9fd-c9bb-4b23-ac7f-3038a8616255";
 							$xpub = "xpub6DUp4iYBbtMhBQvxMZFs1gyroaAaWLFn7a2HBbQigmJSaqidaSvrMQCKwJTFdsZoWrRCVHYLB3nMRVwVczFA7APeXQDLHoDcqEhEg7ApE14";
 							$secret = "0720226275Edwin";
-							$rootURL = "https://www.bitcoinminehub.com/bitcoin_system/production/payment";
+							$rootURL = BASE_URL."bitcoin_system/production/payment";
 							$orderID = $Invoiceid;
 							$callback_url=$rootURL."/callback.php?invoice=".$orderID."&secret=".$secret;
 							$receive_url="https://api.blockchain.info/v2/receive?key=".$api_key."&xpub=".$xpub."&callback=".urlencode($callback_url);
@@ -318,7 +318,7 @@
 							}
 							else
 								{
-								header("location:https://www.bitcoinminehub.com/bitcoin_system/production/login");
+								header("location:".BASE_URL."bitcoin_system/production/login");
 								}
 							?>
                             <?php
@@ -327,7 +327,7 @@
 								$queryconfirm = mysqli_query($conn, $confirmstatus);
 								//Check if status is unpaid
 								if (mysqli_num_rows($queryconfirm) == 1) {
-								header("location:https://www.bitcoinminehub.com/bitcoin_system/production/unpaid");	
+								header("location:".BASE_URL."bitcoin_system/production/unpaid");	
 								}else{
 							$sql="INSERT INTO invoice (Paydate, Invoiceid, Purpose, Btcaddress, Amount, Btcamount, Status, Username)VALUES('$Date', '$Invoiceid', '$Purpose', '$payTo', '$Amount','$Btcamount', '$Status', '$Username')";		
 							mysqli_query($conn, $sql);
@@ -336,7 +336,7 @@
 							}
 							else
 								{
-								header("location:https://www.bitcoinminehub.com/bitcoin_system/production/login");
+								header("location:".BASE_URL."bitcoin_system/production/login");
 								}
 							?>
 			
@@ -398,7 +398,7 @@
     </div>
 	<?php if (isset($submitbutton)) {
 	unset($submitbutton);}
-	else{ header("location:https://www.bitcoinminehub.com/bitcoin_system/production/login");}
+	else{ header("location:".BASE_URL."bitcoin_system/production/login");}
 	?>
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
@@ -469,7 +469,7 @@
             // Time still remains, call this function again in 1 sec
             setTimeout("countdown('" + id + "'," + timer + ")", 1000);
         } else {
-               window.location="https://www.bitcoinminehub.com/bitcoin_system/production/guest";
+               window.location="<?php echo BASE_URL;?>bitcoin_system/production/guest";
         }
     }
 </script>

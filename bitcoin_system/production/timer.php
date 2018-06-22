@@ -1,3 +1,6 @@
+<?php
+include('includes/constant.php');
+?>
 <b><span id="countdown-1">600 seconds</span></b>
 <script type="text/javascript">
     // Initialize clock countdowns by using the total seconds in the elements tag
@@ -27,7 +30,7 @@
             // Time still remains, call this function again in 1 sec
             setTimeout("countdown('" + id + "'," + timer + ")", 1000);
         } else {
-               window.location="https://www.bitcoinminehub.com/bitcoin_system/production/login";
+               window.location="<?php echo BASE_URL;?>bitcoin_system/production/login";
         }
     }
 </script>

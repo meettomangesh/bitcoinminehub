@@ -1,10 +1,11 @@
 
 <?php session_start();
+include('includes/constant.php');
 if (isset($_SESSION['register']))
  { echo ' '; } 
- else{ header("location:https://www.bitcoinminehub.com/bitcoin_system/production/login");}
+ else{ header("location:".BASE_URL."bitcoin_system/production/login");}
 unset($_SESSION['register']);
-if (isset($_SESSION['Username'])) { echo ' '; } else{ header("location:https://www.bitcoinminehub.com/bitcoin_system/production/login");}
+if (isset($_SESSION['Username'])) { echo ' '; } else{ header("location:".BASE_URL."bitcoin_system/production/login");}
 ///////////////////////Check whether there is a pending invoice to be paid////////////////
 include('includes/dbconnect.php');
 			$sql = "SELECT * FROM invoice WHERE Username='".$_SESSION['Username']."' AND Status='Unpaid'";
@@ -70,7 +71,7 @@ include('includes/dbconnect.php');
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="https://www.bitcoinminehub.com" class="site_title"> <span><img src="images/logo.png" alt="Bitcoin Mine Hub"></span></a>
+              <a href="<?php echo BASE_URL;?>" class="site_title"> <span><img src="images/logo.png" alt="Bitcoin Mine Hub"></span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -78,10 +79,10 @@ include('includes/dbconnect.php');
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <a href="https://www.bitcoinminehub.com"><img src="images/img.jpg" alt="..." class="img-circle profile_img"></a>              </div>
+                <a href="<?php echo BASE_URL;?>"><img src="images/img.jpg" alt="..." class="img-circle profile_img"></a>              </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2><?php if (isset($_SESSION['Username'])) { echo ' '.$_SESSION['Username']; } else{ header("location:https://www.bitcoinminehub.com/bitcoin_system/production/login");}?></h2>
+                <h2><?php if (isset($_SESSION['Username'])) { echo ' '.$_SESSION['Username']; } else{ header("location:".BASE_URL."bitcoin_system/production/login");}?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -110,7 +111,7 @@ include('includes/dbconnect.php');
                       <li><a href="#">Previous Support Ticket</a></li>
                     </ul>
                   </li>   
-                  <li><a href="https://www.bitcoinminehub.com/bitcoin_system/production/logout"><i class="fa fa-sign-out"></i>Logout</a>
+                  <li><a href="<?php echo BASE_URL;?>bitcoin_system/production/logout"><i class="fa fa-sign-out"></i>Logout</a>
                   </li>
                 </ul>
               </div>
@@ -149,13 +150,13 @@ include('includes/dbconnect.php');
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt=""><?php if (isset($_SESSION['Username'])) { echo ' '.$_SESSION['Username']; } else{ header("location:https://www.bitcoinminehub.com/bitcoin_system/production/login");}?>
+                    <img src="images/img.jpg" alt=""><?php if (isset($_SESSION['Username'])) { echo ' '.$_SESSION['Username']; } else{ header("location:".BASE_URL."bitcoin_system/production/login");}?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> <i class="fa fa-user pull-right"></i>Profile</a></li>
                     <li><a href="javascript:;"><i class="fa fa-globe pull-right"></i>Support</a></li>
-                    <li><a href="https://www.bitcoinminehub.com/bitcoin_system/production/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="<?php echo BASE_URL;?>bitcoin_system/production/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 					
@@ -226,7 +227,7 @@ include('includes/dbconnect.php');
                           <address>
                           
                                           <strong>
-                                          <?php if (isset($_SESSION['Username'])) { echo ' '.$_SESSION['Username']; } else{ header("location:https://www.bitcoinminehub.com/bitcoin_system/production/login");}?></strong>
+                                          <?php if (isset($_SESSION['Username'])) { echo ' '.$_SESSION['Username']; } else{ header("location:".BASE_URL."bitcoin_system/production/login");}?></strong>
                                           
                                         
                           </address>
@@ -292,7 +293,7 @@ include('includes/dbconnect.php');
 							$api_key = "2fe2a9fd-c9bb-4b23-ac7f-3038a8616255";
 							$xpub = "xpub6D8nQ8trJbFdbotG82bwWwC6z81W3uXDd2WeZoURYLynPcuV1Tvwk5sYhTHki8mPkEfaQ1Xzy959mr5sNGe8ibM8fSeDMRTz4Kp5UwZdrkB";
 							$secret = "0720226275Edwin";
-							$rootURL = "https://www.bitcoinminehub.com/bitcoin_system/production/payment";
+							$rootURL = BASE_URL."bitcoin_system/production/payment";
 							$orderID = $Invoiceid;
 							$callback_url=$rootURL."/callback.php?invoice=".$orderID."&secret=".$secret;
 							$receive_url="https://api.blockchain.info/v2/receive?key=".$api_key."&xpub=".$xpub."&callback=".urlencode($callback_url);
@@ -431,7 +432,7 @@ include('includes/dbconnect.php');
             // Time still remains, call this function again in 1 sec
             setTimeout("countdown('" + id + "'," + timer + ")", 1000);
         } else {
-               window.location="https://www.bitcoinminehub.com/bitcoin_system/production/guest";
+               window.location="<?php echo BASE_URL;?>bitcoin_system/production/guest";
         }
     }
 </script>

@@ -1,5 +1,6 @@
 <?php session_start();?>
-<?php 
+<?php
+include('includes/constant.php');
 $register= 'register';
 session_start();
 $_SESSION['register']= $register;
@@ -121,7 +122,7 @@ mysqli_close($conn);
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="https://www.bitcoinminehub.com" class="site_title"> <span><img src="images/logo.png" alt="Bitcoin Mine Hub"></span></a>
+              <a href="<?php echo BASE_URL;?>" class="site_title"> <span><img src="images/logo.png" alt="Bitcoin Mine Hub"></span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -129,7 +130,7 @@ mysqli_close($conn);
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <a href="https://www.bitcoinminehub.com"><img src="images/img.jpg" alt="..." class="img-circle profile_img"></a>              </div>
+                <a href="<?php echo BASE_URL;?>"><img src="images/img.jpg" alt="..." class="img-circle profile_img"></a>              </div>
               <div class="profile_info">
                 <span>Welcome,</span>
                 <h2><?php if (isset($_SESSION['Username'])) { echo ' '.$_SESSION['Username']; } else{ header("location:login");}?></h2>

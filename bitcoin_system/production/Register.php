@@ -1,4 +1,6 @@
-<?php session_start();?>
+<?php session_start();
+include('includes/constant.php');
+?>
  <?php
  function random_code($limit)
 {
@@ -19,7 +21,7 @@ include('includes/dbconnect.php');
 					$membernumber = $currentmember['Username'];  		
 					} 
 			else {
-					echo '<script>alert("wrong Link");window.location.assign("https://www.bitcoinminehub.com/bitcoin_system/production/login");</script>';
+					echo '<script>alert("wrong Link");window.location.assign("'.BASE_URL.'bitcoin_system/production/login");</script>';
 				 }
 			
 		}
@@ -136,7 +138,7 @@ include('includes/dbconnect.php');
 //if Sponsor does not exist
   else 
   	{
- 	echo '<script>alert("wrong Link");window.location.assign("https://www.bitcoinminehub.com/bitcoin_system/production/login");</script>';
+ 	echo '<script>alert("wrong Link");window.location.assign("'.BASE_URL.'bitcoin_system/production/login");</script>';
 	}
 
 }

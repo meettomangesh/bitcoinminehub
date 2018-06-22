@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+    <?php
+include('includes/constant.php');
+    ?>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -21,7 +24,7 @@
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
   </head>
-
+    
   <body class="login">
     <div>
       <a class="hiddenanchor" id="signup"></a>
@@ -48,7 +51,7 @@
 
               <div class="separator">
                 <p class="change_link">New to site?
-                  <a href="https://www.bitcoinminehub.com/bitcoin_system/production/Register.php?Account=8ygwmun45uskowwkg0w4 " class="to_register"> Create Account </a>
+                  <a href="<?php echo BASE_URL;?>bitcoin_system/production/Register.php?Account=8ygwmun45uskowwkg0w4 " class="to_register"> Create Account </a>
                 </p>
 
                 <div class="clearfix"></div>

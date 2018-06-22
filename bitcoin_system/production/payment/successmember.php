@@ -1,4 +1,6 @@
-<?php session_start();?>
+<?php session_start();
+include('../includes/constant.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -43,7 +45,7 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-          <a href="https://www.bitcoinminehub.com"><img src="images/logo.png" alt="Bitcoin-Mine-Hub"></a>
+          <a href="<?php echo BASE_URL;?>"><img src="images/logo.png" alt="Bitcoin-Mine-Hub"></a>
             <form>
               <h1 class="style2">INVOICE PAID!</h1>
               <i class="fa fa-check text-success"></i>
@@ -58,7 +60,7 @@
                 <br />
 
                 <div>
-                  <a href="https://www.bitcoinminehub.com/bitcoin_system/production/index"<button type="button" class="btn btn-round btn-success">Proceed to My Account</button></a>
+                  <a href="<?php echo BASE_URL;?>bitcoin_system/production/index"<button type="button" class="btn btn-round btn-success">Proceed to My Account</button></a>
                 </div>
               </div>
             </form>
