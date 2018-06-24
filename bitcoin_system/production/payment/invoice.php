@@ -303,7 +303,7 @@
 							$api_key = "2fe2a9fd-c9bb-4b23-ac7f-3038a8616255";
 							$xpub = "xpub6DUp4iYBbtMhBQvxMZFs1gyroaAaWLFn7a2HBbQigmJSaqidaSvrMQCKwJTFdsZoWrRCVHYLB3nMRVwVczFA7APeXQDLHoDcqEhEg7ApE14";
 							$secret = "0720226275Edwin";
-							$rootURL = BASE_URL."bitcoin_system/production/payment";
+							$rootURL = QR_BASE_URL."bitcoin_system/production/payment";
 							$orderID = $Invoiceid;
 							$callback_url=$rootURL."/callback.php?invoice=".$orderID."&secret=".$secret;
 							$receive_url="https://api.blockchain.info/v2/receive?key=".$api_key."&xpub=".$xpub."&callback=".urlencode($callback_url);
@@ -346,7 +346,7 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-xs-6">
-                       			 	
+                       		<?php echo 'payto val=>'.$payTo; ?>	 	
                           <p class="lead"><span class="style11">Total Due</span><span class="style10">: <?php echo $Btcamount;?> BTC= <em>$<?php echo $Amount;?></em></span></p>
                             <a href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<?php echo "bitcoin:$payTo?amount=$Btcamount"; ?>"><button type="button" class="btn btn-primary">Scan QR Code</button></a>
                           
