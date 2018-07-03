@@ -346,7 +346,6 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-xs-6">
-                       		<?php echo 'payto val=>'.$payTo; ?>	 	
                           <p class="lead"><span class="style11">Total Due</span><span class="style10">: <?php echo $Btcamount;?> BTC= <em>$<?php echo $Amount;?></em></span></p>
                             <a href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<?php echo "bitcoin:$payTo?amount=$Btcamount"; ?>"><button type="button" class="btn btn-primary">Scan QR Code</button></a>
                           
