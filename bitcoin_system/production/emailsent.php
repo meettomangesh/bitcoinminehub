@@ -23,13 +23,13 @@ include('includes/dbconnect.php');
 // Always set content-type when sending HTML email
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
-$headers .= "From: mail.register@bitcoinminehub.com" . "\r\n" .
-"Reply-To: mail.register@bitcoinminehub.com" . "\r\n" .
+$headers .= "From: mail.register@bitminepool.com" . "\r\n" .
+"Reply-To: mail.register@bitminepool.com" . "\r\n" .
 "X-Mailer: PHP/" . phpversion();
 
 // More headers
-$headers .= 'From: <mail.register@bitcoinminehub.com>' . "\r\n";
-$headers .= 'Cc: mail.support@bitcoinminehub.com' . "\r\n";
+$headers .= 'From: <mail.register@bitminepool.com>' . "\r\n";
+$headers .= 'Cc: mail.register@bitminepool.com' . "\r\n";
 
 mail($to,$subject,$message,$headers);
  echo "<script>window.location.href='passwordcode.php'</script>";
